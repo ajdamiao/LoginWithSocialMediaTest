@@ -97,20 +97,16 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
         for (editInput in editInputs) {
             editInput.addTextChangedListener(object : TextWatcher {
-                override fun beforeTextChanged(
-                    s: CharSequence?, start: Int, count: Int, after: Int
-                ) {
-                }
+                override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int){}
 
                 override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                    val inputEmail = binding.inputEmail.toString().trim()
-                    val inputPassword = binding.inputPassword.toString().trim()
+                    val inputEmail = binding.inputEmail.text.toString().trim()
+                    val inputPassword = binding.inputPassword.text.toString().trim()
                     binding.btnLogin.isEnabled = inputEmail.isNotEmpty()
                             && inputPassword.isNotEmpty()
                 }
 
-                override fun afterTextChanged(s: Editable?) {
-                }
+                override fun afterTextChanged(s: Editable?) {}
             })
         }
     }
